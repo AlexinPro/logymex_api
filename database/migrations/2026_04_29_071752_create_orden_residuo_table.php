@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evidencias', function (Blueprint $table) {
+        Schema::create('orden_residuo', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('orden_id')->constrained('orden_servicio')->cascadeOnDelete();
+            $table->foreignId('residuo_id')->constrained('residuos')->cascadeOnDelete();
+            $table->decimal('cantidad', 10, 2);
+            $table->string('unidad_medida');
+
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evidencias');
+        Schema::dropIfExists('orden_residuo');
     }
 };

@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Unidad extends Model
 {
-    //
+    protected $fillable = [
+        'placas',
+        'marca',
+        'modelo',
+        'tipo',
+        'activo'
+    ];
+
+    public function ordenes()
+    {
+        return $this->hasMany(OrdenServicio::class);
+    }
 }

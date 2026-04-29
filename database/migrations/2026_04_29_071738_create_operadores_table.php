@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('servicios', function (Blueprint $table) {
+        Schema::create('operadores', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('fecha');
-            $table->string('tipo_servicio');
-            $table->foreignId('empresa_id')->constrained();
-            $table->string('domicilio');
-            $table->foreignId('unidad_id')->constrained();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('servicios');
+        Schema::dropIfExists('operadores');
     }
 };
