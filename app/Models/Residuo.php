@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Residuo extends Model
 {
+    protected $table = 'residuos';
     protected $fillable = [
         'nombre',
         'clasificacion',

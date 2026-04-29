@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evidencia extends Model
 {
-    protected $fillable = [
+    protected $table = 'evidencias';
+    protected $fillable = [ 
         'orden_id',
         'archivo',
         'tipo'
